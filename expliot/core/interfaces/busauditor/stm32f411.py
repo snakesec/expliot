@@ -151,7 +151,7 @@ class STM32F411(BusAuditorServices):
             len(pdata) == self.SRV_GET_REVISIONS_RESP_LEN
             and pdata[0] == self.SRV_GET_REVISIONS_RESP
         ):
-            self.set_base_serivce(self.GET_FW_REV, True)
+            self.set_base_service(self.GET_FW_REV, True)
             ver = pdata[3:]
             self.__fw_version = str(ver[0]) + "." + str(ver[1]) + "." + str(ver[2])
             self.__hw_version = str(ver[3]) + "." + str(ver[4])
@@ -181,7 +181,7 @@ class STM32F411(BusAuditorServices):
             len(resp) == self.SRV_GET_SERVICES_RESP_LEN
             and resp[0] == self.SRV_GET_SERVICES_RESP
         ):
-            self.set_base_serivce(self.GET_FW_SERV, True)
+            self.set_base_service(self.GET_FW_SERV, True)
 
             if resp[self.SRV_RESP_BYTE_4] & self.SRV_JTAG_SCAN_BIT:
                 self.set_device_service(self.JTAG_SCAN, True)

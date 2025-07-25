@@ -152,7 +152,7 @@ class NRF52840(ZbAuditorServices):
             len(pdata) == self.SRV_GET_FW_VER_RESP_LEN
             and pdata[0] == self.SRV_GET_FW_VER_RESP
         ):
-            self.set_base_serivce(self.GET_FW_REV, True)
+            self.set_base_service(self.GET_FW_REV, True)
             return pdata[2:]
 
         raise NotImplementedError("Invalid response for Get FW Version")
@@ -176,7 +176,7 @@ class NRF52840(ZbAuditorServices):
             and resp[0] == self.SRV_GET_FW_SRV_RESP
         ):
 
-            self.set_base_serivce(self.GET_FW_SERV, True)
+            self.set_base_service(self.GET_FW_SERV, True)
 
             self.set_device_service(self.SET_MAC_POWER, True)
 
